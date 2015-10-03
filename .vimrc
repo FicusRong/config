@@ -34,9 +34,21 @@ Bundle 'embear/vim-localvimrc'
 filetype plugin indent on     " required! 
 " vundle end
 
-" GUI
+"" GUI
 set background=dark
 colorscheme desert
+
+" Personal setting
+set nu
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set cursorline
+hi CursorLine ctermbg=237 cterm=None
+set hlsearch
+hi Search cterm=bold ctermfg=None ctermbg=grey
 
 " For NERDTree plugin
 " autocmd vimenter * NERDTree
@@ -52,7 +64,7 @@ noremap <silent> <F8> :BufExplorer<CR>
 
 " For ctags
 set tags+=~/.vim/tagfiles/stl_tags
-map <F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q .<CR> <CR>
+map <F12> :!find . -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR><CR>
 
 " For CtrlP Plugin
 " let g:ctrlp_working_path_mode=1
