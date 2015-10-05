@@ -28,8 +28,8 @@ Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
-"Bundle 'scrooloose/syntastic'
 Bundle 'embear/vim-localvimrc'
+"Bundle 'Shougo/neocomplete.vim'
 
 filetype plugin indent on     " required! 
 " vundle end
@@ -38,7 +38,9 @@ filetype plugin indent on     " required!
 set background=dark
 colorscheme desert
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Personal setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nu
 set smartindent
 set tabstop=4
@@ -49,6 +51,34 @@ set cursorline
 hi CursorLine ctermbg=237 cterm=None
 set hlsearch
 hi Search cterm=bold ctermfg=None ctermbg=grey
+
+" For quick replace
+map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
+
+" For C++ completion plugin
+if v:version <= 703 || !has('python')
+	" For omnicomplete
+	Bundle 'OmniCppComplete'
+	let OmniCpp_NamespaceSearch = 1      
+	let OmniCpp_GlobalScopeSearch = 1      
+	let OmniCpp_ShowScopeInAbbr = 1
+	let OmniCpp_ShowPrototypeInAbbr = 1
+	let OmniCpp_ShowAccess = 1      
+	let OmniCpp_MayCompleteDot = 1
+	let OmniCpp_MayCompleteArrow = 1      
+	let OmniCpp_MayCompleteScope = 1      
+	let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+	" Do not show preview window
+	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+else
+	Bundle 'Valloric/YouCompleteMe'
+	"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+	"let g:ycm_confirm_extra_conf = 0
+	let g:ycm_autoclose_preview_window_after_completion = 1
+	let g:ycm_autoclose_preview_window_after_insertion = 1
+	noremap <F3> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
 
 " For NERDTree plugin
 " autocmd vimenter * NERDTree
@@ -72,3 +102,13 @@ let g:ctrlp_by_filename=1
 let g:ctrlp_custom_ignore={
 	\ 'dir': '\.git$\|\.hg$\|\.svn$\|build$\|deps$\|lib$\|release$\|debug$',
 	\}
+
+" For powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail_improved'
+let g:airline#extensions#whitespace#enabled = 0
