@@ -51,6 +51,7 @@ hi CursorLine ctermbg=237 cterm=None
 set hlsearch
 hi Search cterm=bold ctermfg=None ctermbg=grey
 hi Pmenu ctermbg=green
+set ignorecase smartcase
 
 " For quick replace
 map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
