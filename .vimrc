@@ -82,6 +82,8 @@ if 1
 
     Bundle 'AutoComplPop'
     inoremap <Tab>  <C-R>=pumvisible() ? "\<lt>Down>" : "\<lt>Tab>"<CR>
+    noremap <F3> :Rgrep <c-r>=expand("<cword>")<cr>  *.h *.hpp *.cuh *.c *.cc *.cpp *.cu *.py *.java <CR><CR>
+
 else
     Bundle 'Valloric/YouCompleteMe'
     "let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -109,7 +111,7 @@ noremap <silent> <F8> :BufExplorer<CR>
 
 " For ctags
 set tags+=~/.vim/tagfiles/stl_tags
-map <F12> :!find . -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" -o -name "*.cu" -o -name "*.cuh" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR><CR>
+map <F12> :!find . -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" -o -name "*.cuh" -o -name "*.cu" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR><CR>
 
 " For CtrlP Plugin
 " let g:ctrlp_working_path_mode=1
