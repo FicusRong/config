@@ -109,7 +109,7 @@ noremap <silent> <F8> :BufExplorer<CR>
 
 " For ctags
 set tags+=~/.vim/tagfiles/stl_tags
-map <F12> :!find . -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR><CR>
+map <F12> :!find . -name "*.h" -o -name "*.c" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" -o -name "*.cu" -o -name "*.cuh" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR><CR>
 
 " For CtrlP Plugin
 " let g:ctrlp_working_path_mode=1
