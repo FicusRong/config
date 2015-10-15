@@ -83,6 +83,7 @@ if 1
     Bundle 'AutoComplPop'
     inoremap <Tab>  <C-R>=pumvisible() ? "\<lt>Down>" : "\<lt>Tab>"<CR>
     noremap <F3> :Rgrep <c-r>=expand("<cword>")<cr>  *.h *.hpp *.cuh *.c *.cc *.cpp *.cu *.py *.java <CR><CR>
+    noremap <F4> :Rgrep  *.h *.hpp *.cuh *.c *.cc *.cpp *.cu *.py *.java
 
 else
     Bundle 'Valloric/YouCompleteMe'
