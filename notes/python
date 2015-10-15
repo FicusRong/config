@@ -1,0 +1,13 @@
+using utf8
+# -*- coding: utf-8 -*- 
+
+
+list dir
+import os
+rootDir = 'C:\\zabbix\\'
+def Test1(rootDir):
+    for root,dirs,files in os.walk(rootDir):
+        for filespath in files:
+            print os.path.join(root,filespath)
+
+python -m SimpleHTTPServer 8081
