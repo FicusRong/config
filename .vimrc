@@ -53,6 +53,11 @@ hi Search cterm=bold ctermfg=None ctermbg=grey
 hi Pmenu ctermbg=green
 set ignorecase smartcase
 
+" For paste
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " For quick replace
 map <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
 
