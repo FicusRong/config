@@ -1,9 +1,6 @@
 ip=$1
 ssh $ip <<EOF
 cd ~
-rm -r .ssh
-cp -r /mnt/ficusalpha/srong/config/.ssh ./
-
 git clone https://github.com/FicusRong/config.git
 cp ./config/.bashrc ./
 cp ./config/.profile ./
