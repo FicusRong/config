@@ -118,3 +118,8 @@ alias adb='/ficusstorage1/softwares/android/android-sdk-linux/platform-tools/adb
 
 export TERM=xterm-256color
 export PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+export PYENV_ROOT="/mnt/BJG0001/srong/.pyenv"
+export PATH="/mnt/BJG0001/srong/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
