@@ -14,9 +14,11 @@ scp -r ~/.config/htop $ip:~/.config/
 scp -r ~/.curlrc $ip:~/
 scp -r ~/.wgetrc $ip:~/
 scp -r ~/.condarc $ip:~/
+scp ~/.oh-my-zsh/themes/robbyrussell_cust.zsh-theme $ip:~/.oh-my-zsh/themes/
 
 ssh $ip <<EOF
 cd ~
+ln -s ~/config/.zshrc ./
 cp ./config/.bashrc ./
 cp ./config/.profile ./
 rm ~/tmux-powerline/themes/default.sh
