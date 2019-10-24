@@ -66,6 +66,11 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
+nnoremap <C-x> <C-W>c
+nnoremap <C-w><C-h> :vertical resize -3<CR>
+nnoremap <C-w><C-j> :resize -3<CR>
+nnoremap <C-w><C-k> :resize +3<CR>
+nnoremap <C-w><C-l> :vertical resize +3<CR>
 
 " For C++ completion plugin
 " if v:version <= 703 || !has('python')
@@ -87,7 +92,7 @@ if 1
 
     Bundle 'AutoComplPop'
     inoremap <Tab>  <C-R>=pumvisible() ? "\<lt>Down>" : "\<lt>Tab>"<CR>
-    noremap <F3> :Rgrep <c-r>=expand("<cword>")<cr>  *.h *.hpp *.cuh *.c *.cc *.cpp *.cu *.py *.java <CR><CR>
+    noremap <F3> :Rgrep <c-r>=expand("<cword>")<cr>  *.h *.hpp *.cuh *.c *.cc *.cpp *.cu *.py *.java *.proto <CR><CR>
     noremap <F4> :Rgrep  *.h *.hpp *.cuh *.c *.cc *.cpp *.cu *.py *.java
 
 else
@@ -118,7 +123,7 @@ noremap <silent> <F8> :BufExplorer<CR>
 " For ctags
 set tags+=~/.vim/tagfiles/stl_tags
 " map <F12> :!find . -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" -o -name "*.cuh" -o -name "*.cu" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR> :!rm .srcFiles <CR><CR>
-map <F12> :!find . \( -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" -o -name "*.cuh" -o -name "*.cu" \) -a -not -path "*external/android*" -a -not -path "*external/linux/arm*" -a -not -path "*external/windows*" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR> :!rm .srcFiles <CR><CR>
+map <F12> :!find . \( -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.hpp" -o -name "*.java" -o -name "*.py" -o -name "*.cuh" -o -name "*.cu" -o -name "*.proto" \) -a -not -path "*external/android*" -a -not -path "*external/linux/arm*" -a -not -path "*external/windows*" > .srcFiles <CR> :!ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q -L .srcFiles <CR> :!rm .srcFiles <CR><CR>
 
 " For CtrlP Plugin
 " let g:ctrlp_working_path_mode=1
