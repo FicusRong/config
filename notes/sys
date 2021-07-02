@@ -19,3 +19,6 @@ ss-local -s 106.185.38.172 -p 8100 -l 1080 -k sakuya -m aes-256-cfb
 numactl --cpunodebind= --membind=
 
 sudo mount -t tmpfs -o size=10240M tmpfs ./data
+
+python -m SimpleHTTPServer 7800
+python3 -m http.server 7800
