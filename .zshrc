@@ -98,7 +98,7 @@ setopt no_share_history
 
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
-export PYENV_ROOT="/mnt/WXRG0201/srong/.pyenv"
-export PATH="/mnt/WXRG0201/srong/.pyenv/bin:$PATH"
+export PYENV_ROOT="/mnt/WXRG0439_hdd/srong/.pyenv"
+export PATH="/mnt/WXRG0439_hdd/srong/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
