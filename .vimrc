@@ -52,6 +52,7 @@ set hlsearch
 hi Search cterm=bold ctermfg=None ctermbg=grey
 hi Pmenu ctermbg=green
 set ignorecase smartcase
+set colorcolumn=81
 
 " For paste
 nnoremap <F2> :set invpaste paste?<CR>
