@@ -1,2 +1,0 @@
-dev_start:
-bash docker/scripts/dev_start.sh stop; bash docker/scripts/dev_start.sh --pypi-index-url https://shu.rong:AP3QrFag9yioRq5yC75Rmaw1qQJ@it-artifactory.yitu-inc.com/api/pypi/pypi/simple
