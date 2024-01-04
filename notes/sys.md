@@ -1,3 +1,7 @@
+# Nvidia
+`$export CUDA_VISIBLE_DEVICES=1,2`
+
+# Misc
 change keyboard rate:
 sudo xset r rate 200 40
 
