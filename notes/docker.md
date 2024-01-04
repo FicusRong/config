@@ -1,6 +1,7 @@
 # basic
-`$docker login it-artifactory.yitu-inc.com`  
-`
+`$sudo usermod -aG docker username`
+`$docker login it-artifactory.yitu-inc.com`
+
 # Dockerfile
 ```
 ARG CUDA_VERSION=11.7.1
@@ -10,4 +11,6 @@ FROM ${from} as base
 
 CMD ["/bin/bash"]
 ```
+
 # nvidia
+`nvidia-docker run --net=host -it -d --rm --shm-size=2G --name ${name} -v /mnt:/mnt ${image} bash`
