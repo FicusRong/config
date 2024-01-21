@@ -1,13 +1,20 @@
-using utf8
+# Server
+```
+python -m SimpleHTTPServer 7800
+python3 -m http.server 7800
+ssh -L 9999:localhost:9999 USER@SERVER
+```
+
+
+# Misc
+```
 # -*- coding: utf-8 -*- 
 
-
-list dir
+# list dir
 import os
 rootDir = 'C:\\zabbix\\'
 def Test1(rootDir):
     for root,dirs,files in os.walk(rootDir):
         for filespath in files:
             print os.path.join(root,filespath)
-
-python -m SimpleHTTPServer 8081
+```
