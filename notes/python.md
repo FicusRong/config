@@ -2,7 +2,9 @@
 ```
 python -m SimpleHTTPServer 7800
 python3 -m http.server 7800
+
 ssh -L 9999:localhost:9999 USER@SERVER
+jupyter notebook --no-browser --port=9999
 ```
 
 
