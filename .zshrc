@@ -97,23 +97,3 @@ setopt no_inc_append_history
 setopt no_share_history
 
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-#alias ff='find ./ -name "frame*bin"|xargs realpath'
-ff() {
-  find $1 -name "frame_data_meta.bin*"|xargs realpath
-}
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/mnt/WXRG0439_hdd/srong/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/mnt/WXRG0439_hdd/srong/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/mnt/WXRG0439_hdd/srong/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/mnt/WXRG0439_hdd/srong/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
