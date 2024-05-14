@@ -1,6 +1,13 @@
 # Nvidia
 `$export CUDA_VISIBLE_DEVICES=1,2`
 
+# FileBrowser
+https://github.com/filebrowser/filebrowser
+port: 8080
+
+# VSCode
+ps aux | grep .vscode-server | awk '{print $2}' | xargs kill
+
 # Misc
 change keyboard rate:
 sudo xset r rate 200 40
