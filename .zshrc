@@ -1,99 +1,75 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Use utf-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# -----------------------------------------------------------------------------
+# History Configuration
+# -----------------------------------------------------------------------------
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell_cust"
+# Write to history immediately and ignore duplicates
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# -----------------------------------------------------------------------------
+# Prompt Configuration
+# -----------------------------------------------------------------------------
+# Enables prompt substitution and color support
+autoload -Uz promptinit && promptinit
+autoload -Uz colors && colors
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Simple, informative prompt: [user@host:current_folder]$ 
+PROMPT='%F{green}%n@%m%f:%F{cyan}%~%f$ '
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# -----------------------------------------------------------------------------
+# Completion & Navigation
+# -----------------------------------------------------------------------------
+autoload -Uz compinit && compinit
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Case-insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Alias
+alias ll='ls -lah'
+alias du='du -h'
+alias du1='du -h -d 1'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias proxy='export http_proxy="http://127.0.0.1:54054"; export https_proxy="http://127.0.0.1:54054"; export all_proxy="socks5://127.0.0.1:54054"; echo "Proxy Environment Set."'
+alias unproxy='unset http_proxy https_proxy all_proxy; echo "Proxy Environment Cleared."'
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# -----------------------------------------------------------------------------
+# Environment & PATH
+# -----------------------------------------------------------------------------
+export EDITOR="vim"
+export LANG="en_US.UTF-8"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# ========== Homebrew 中科大镜像（支持 Manifest） ==========
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# Add local binaries to PATH
+export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Claude Code API Router configuration
+export ANTHROPIC_BASE_URL="https://co.yes.vg"
+export ANTHROPIC_AUTH_TOKEN="cr_274fa0b16ebf19b746a72356bbbd1a424f4e30c90ac888db982adb48d547a36f"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Added by Antigravity CLI installer
+export PATH="/Users/shu.rong/.local/bin:$PATH"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-setopt no_inc_append_history
-setopt no_share_history
-
-zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+# -----------------------------------------------------------------------------
+# YITU Dev
+# -----------------------------------------------------------------------------
+export HARBOR_REGISTRY=harbor.yitu-inc.com
+export ARTIFACTORY_REGISTRY=it-artifactory.yitu-inc.com
