@@ -1,0 +1,24 @@
+model_provider = "openai"
+model = "gpt-6-astra"
+model_reasoning_effort = "medium"
+service_tier = "fast"
+approvals_reviewer = "user"
+
+# Never ask for command approval
+approval_policy = "never"
+
+# Disable filesystem/shell sandbox restrictions
+sandbox_mode = "danger-full-access"
+
+[tui]
+status_line = [
+    "model-with-reasoning",
+    "context-remaining",
+    "total-input-tokens",
+    "total-output-tokens",
+    "weekly-limit",
+]
+
+[tui.keymap.global]
+toggle_side_conversation = "ctrl-]"
+
