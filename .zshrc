@@ -61,11 +61,6 @@ export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH"
 
 
-# Claude Code API Router configuration
-export ANTHROPIC_BASE_URL="https://co.yes.vg"
-export ANTHROPIC_AUTH_TOKEN="cr_274fa0b16ebf19b746a72356bbbd1a424f4e30c90ac888db982adb48d547a36f"
-
-
 # Added by Antigravity CLI installer
 export PATH="/Users/shu.rong/.local/bin:$PATH"
 
