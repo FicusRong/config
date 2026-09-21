@@ -1,0 +1,12 @@
+{
+  "agentMode": "accept-edits",
+  "allowNonWorkspaceAccess": true,
+  "artifactReviewPolicy": "always-proceed",
+  "toolPermission": "always-proceed",
+  "trustedWorkspaces": [
+    "/Users/shu.rong",
+    "/Users/shu.rong/workspace/salg_coach",
+    "/Users/shu.rong/workspace/agent_farm/10-agents/AF-003-SLAG_101/dict"
+  ],
+  "verbosity": "low"
+}
