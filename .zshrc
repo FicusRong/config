@@ -41,7 +41,8 @@ alias du1='du -h -d 1'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias proxy='export http_proxy="http://127.0.0.1:54054"; export https_proxy="http://127.0.0.1:54054"; export all_proxy="socks5://127.0.0.1:54054"; echo "Proxy Environment Set."'
+PROXY_IP_PORT="127.0.0.1:54054"
+alias proxy='export http_proxy="http://$PROXY_IP_PORT"; export https_proxy="http://$PROXY_IP_PORT"; export all_proxy="socks5://$PROXY_IP_PORT"; echo "Proxy Environment Set."'
 proxy
 alias unproxy='unset http_proxy https_proxy all_proxy; echo "Proxy Environment Cleared."'
 
